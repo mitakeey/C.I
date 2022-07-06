@@ -1,0 +1,19 @@
+# handling job failures with on fail
+version: 2.1
+
+jobs:
+  mitakeey_jobs:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: exit 1
+      - run:
+          name: on error
+          command: echo "Hello Error"
+          when: on fail
+
+workflows:
+  my_workflow:
+    jobs:
+      - mitakeey_jobs
+      
