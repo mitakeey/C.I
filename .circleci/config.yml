@@ -8,7 +8,7 @@ orbs:
 jobs:
   myjob1:
       docker:
-        - image: 'ami-0070c5311b7677678'
+        - image: 
       steps:
         - checkout 
         - run: echo "hello world"
