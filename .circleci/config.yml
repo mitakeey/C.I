@@ -14,22 +14,6 @@ jobs:
               --template-file template.yml \
               --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
               --region us-east-1
-
-  configure_infrastructure:
-    docker:
-      - image: python:3.7-alpine3.11
-    steps:
-      - checkout
-      - add_ssh_keys:
-          fingerprint: 74:f1:12:99:e3:96:30:a3:75:0b:ef:cc:8b:44:f2:c4
-      - run:
-          name: install dependnecies
-          command: |
-            apl add --update ansible
-      - run:
-          name: configure server
-          command: |
-            ansible-playbook -i inventory.txt playbook.yml
   
   # Config and Deployment
   configure_infrastructure: 
