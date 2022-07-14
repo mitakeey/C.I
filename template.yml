@@ -7,7 +7,7 @@ Resources:
     Properties:
       SecurityGroups:
         - !Ref InstanceSecurityGroup    
-      KeyName: udacity_rsa.pem
+      KeyName: udacity_rsa
       ImageId: 'ami-0cff7528ff583bf9a'
       InstanceType: t3.micro
   InstanceSecurityGroup:
