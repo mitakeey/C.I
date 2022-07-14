@@ -38,7 +38,7 @@ jobs:
     steps:
       - run: apk add --update curl
       - run:
-            command:
+            command: |
               URL="https://blog.udacity.com/"
               # Test if website exists
               if curl -s --head ${URL} 
