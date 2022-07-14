@@ -65,7 +65,7 @@ jobs:
     steps:
       - run:
             command: return 1
-      - destroy_environmant
+      - destroy_environment
 
 workflows:
   myWorkflow:
