@@ -1,6 +1,6 @@
-# Exercise - Rollback
+# cloudformation stack
 AWSTemplateFormatVersion: 2010-09-09
-Description: ND9991 C3 L4 
+Description: cloud formation stack create rules
 Resources:
   EC2Instance:
     Type: 'AWS::EC2::Instance'

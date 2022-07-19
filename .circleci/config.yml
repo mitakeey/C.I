@@ -69,18 +69,18 @@ jobs:
   create_and_deploy_front_end:
   # Executes the bucket.yml - Deploy an S3 bucket, and interface with that bucket to synchronize the files between local and the bucket.
   # Note that the `--parameter-overrides` let you specify a value that override parameter value in the bucket.yml template file.
-  docker:
-    - image: amazon/aws-cli
-  steps:
-    - checkout
-    - run:
-        name: execute bucket.ynl - create cloudformation stack
-        command: |
-          aws cloudformation deploy \
-          --template-file bucket.yml \
-          --stack-name stack-create-bucket-${CIRCLE_WORKFLOW_ID:0-7} \
-          --parameter-overrides MyBucketName="mybucket-${CIRCLE_WORKFLOW_ID:0-7}"
-    - run: aws s3 sync . s3://mybucket-${CIRCLE_WORKFLOW_ID:0:7} --delete
+    docker:
+      - image: amazon/aws-cli
+    steps:
+      - checkout
+      - run:
+          name: execute bucket.ynl - create cloudformation stack
+          command: |
+            aws cloudformation deploy \
+            --template-file bucket.yml \
+            --stack-name stack-create-bucket-${CIRCLE_WORKFLOW_ID:0-7} \
+            --parameter-overrides MyBucketName="mybucket-${CIRCLE_WORKFLOW_ID:0-7}"
+      - run: aws s3 sync . s3://mybucket-${CIRCLE_WORKFLOW_ID:0:7} --delete
 
   get_last_deployment_id:
   # Fetch and save the pipeline ID (bucket ID) responsible for the last release.
